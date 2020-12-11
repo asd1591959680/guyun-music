@@ -1,0 +1,56 @@
+
+<view>
+<!-- 头部搜索 -->
+  <view class="search_container">
+    <view class="header">
+      <view class="search_input">
+        <text class="iconfont icon-sousuo search_icon"></text>
+        <input 
+        type="text" 
+        placeholder="{{placeholder}}" 
+        placeholder-class="placeholder"
+        bindinput="inputContent"
+        value="{{searchWord}}" />
+        <text class="clear" bindtap="claerSearch" hidden="{{!searchWord}}">X</text>
+      </view>
+      <text class="cancel">取消</text>
+    </view>
+  </view>
+  <!-- 搜索内容展示 -->
+  <block wx:if="{{searchList.length}}">
+    <view class="search_content_wrap">
+      <view class="search_content">
+        搜索内容：{{searchWord}}
+      </view>
+      <view class="search_list">
+        <view class="search_item" wx:for="{{searchList}}" wx:key="id">
+          <text class="iconfont icon-sousuo"></text>
+          <text class="content">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 热搜榜 -->
+  <block wx:else>
+    <!-- 历史记录 -->
+    <view class="history" wx:if="{{historyList.length}}">
+      <view class="title">历史</view>
+      <view class="history_item" wx:for="{{historyList}}" wx:key="*item">
+      {{item}}
+      <text class="iconfont icon-shanchu delete" bindtap="claerHistory"></text>
+      </view>
+    </view>
+    <view class="hot_container">
+      <view class="title">热搜榜</view>
+      <!-- 热搜列表 -->
+      <view class="hot_list">
+        <view class="hot_item" wx:for="{{hotList}}"
+        wx:key="searchWord">
+          <text class="order">{{index + 1}}</text>
+          <text>{{item.searchWord}}</text>
+          <image class="icon_img" wx:if="{{item.iconUrl}}" src="{{item.iconUrl}}"></image>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

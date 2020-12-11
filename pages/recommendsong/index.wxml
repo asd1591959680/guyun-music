@@ -1,0 +1,33 @@
+<view class="recommend_container">
+  <view class="header">
+    <image src="https://img.coolcr.cn/2020/12/06/0ac04f5f4976b.jpg"></image>
+    <view class="data">
+      <text class="day">{{day}}/</text>
+      <text class="month">{{month}}</text>
+    </view>
+  </view>
+  <!-- 列表区域 -->
+  <view class="list_container">
+    <view class="list_header">
+      <text>播放全部</text>
+      <text class="changeMore">多选</text>
+    </view>
+      <!-- 内容区 -->
+    <scroll-view scroll-y class="list_scroll">
+      <view class="scroll_item"
+      wx:for="{{RecommendList}}"
+      wx:key="id"
+      bindtap="toSongDetail"
+      data-song="{{item.id}}"
+      data-index="{{index}}">
+        <image src="{{item.al.picUrl}}"></image>
+        <view class="music_info">
+          <text class="music_name">{{item.name}}</text>
+          <text class="author">{{item.ar[0].name}}</text>
+        </view>
+        <text class="iconfont icon-ziyuan"></text>
+      </view>
+    </scroll-view>
+  </view>
+
+</view>

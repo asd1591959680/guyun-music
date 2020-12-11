@@ -1,0 +1,124 @@
+
+
+.song_container{
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .author{}
+  .cricle{
+    position: relative;
+    z-index: 100;
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 10rpx 0;
+  }
+  .needle{
+    position: relative;
+    z-index: 99;
+    top: -40rpx;
+    left: 60rpx;
+    width: 192rpx;
+    height: 274rpx;
+    transform-origin: 40rpx 0;
+    transform: rotate(-20deg);
+    transition: transform 1s;
+  }
+  .needle_rotate{
+    transform: rotate(0deg);
+  }
+  .disc_container{
+    position: relative;
+    top: -170rpx;
+    width: 598rpx;
+    height: 598rpx;
+
+    .disc{
+      width: 598rpx;
+      height: 598rpx;
+    }
+    .musicImg{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 370rpx;
+      height: 370rpx;
+      border-radius: 50%;
+    }
+  }
+  .dis_animation{
+    animation: disc 4s linear infinite;
+    animation-delay: 1s;
+  }
+  @keyframes disc {
+    form{
+      transform: rotate(0deg);
+    }
+    to{
+      transform: rotate(360deg);
+    }
+  }
+
+  .music_control{
+    position: absolute;
+    bottom: 40rpx;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: 1rpx solid #fff;
+    text{
+      height: 120rpx;
+      line-height: 120rpx;
+      text-align: center;
+      color: #fff;
+      font-size: 50rpx;
+    }
+    .big{
+      font-size: 80rpx;
+    }
+  }
+
+  .progerss_control{
+    position: absolute;
+    bottom: 200rpx;
+    width: 640rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    display: flex;
+
+    text{
+
+    }
+    .bar_control{
+      position: relative;
+      width: 450rpx;
+      height: 4rpx;
+      background-color: rgba(0, 0, 0, 0.4);
+      margin: auto;
+      .play_bar{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100rpx;
+        z-index: 1;
+        height: 4rpx;
+        background-color: sandybrown;
+        .play_circle{
+          position: absolute;
+          right: -12rpx;
+          top: -4rpx;
+          width: 12rpx;
+          height: 12rpx;
+          border-radius: 50%;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}
